@@ -26,10 +26,7 @@ Route::get('/delete/{id}', 'HomeController@delete')->name('delete');
 
 Route::get('/update/{id}','HomeController@update')->name('update');
 
-Route::get('/contract',function(){
-	return view('actions.person');
-});
-
+ Route::get('/contract','HomeController@create')->name('contract');
 
  
 
