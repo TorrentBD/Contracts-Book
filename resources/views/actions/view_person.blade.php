@@ -4,6 +4,14 @@
  <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-2">
+      <ul class="breadcrumb">
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li class="active">View Contacts</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">View Contact</h3>

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: rgb(17, 152, 176);font-size: 40px;">Dashboard</div>
+                <div class="panel-heading" style="background-color: rgb(17, 152, 176);font-size: 30px;"><marquee width = "50%">Mini Address Book Web App Developed by M. Ray</marquee></div>
 
                 <div class="panel-body">
                     @if (session('status'))

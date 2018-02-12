@@ -4,12 +4,20 @@
  <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-2">
+      <ul class="breadcrumb">
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li class="active">Add Contacts</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title"> Add New Contact</h3>
+           <h3 class="panel-title" align="center">Add New Contact  </h3>
           </div>
           <div class="panel-body">
-
+            <h3 align="center"> Add Person Infrormation </h3><br>
             <form class="form-horizontal" name="contact_form" id="contact_form" enctype="multipart/form-data" method="post" action="{{ url('add') }}" >
                {{ csrf_field() }}
                <fieldset>

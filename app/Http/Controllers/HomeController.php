@@ -33,6 +33,13 @@ class HomeController extends Controller
     }
 
 
+    public function create()
+    {
+                
+        return view('actions.person');
+    }
+
+
     public function add(Request $request)
     {
         $validator = Validator::make($request->all(), [
