@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Contract;
 
@@ -27,9 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         
-        $tasks = Contract::all();
-
-            return view('home')->with('tasks',$tasks);
+        $users = Contract::paginate(5);
+        
+        return view('home')->with('tasks',$users);
     }
 
 
@@ -45,9 +45,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
         'f_name' => 'required|string|max:30',
         'c_email' => 'required|string|email|max:30',
-        'f_name' => 'required|max:30',
         'cont_1' => 'required|max:11',
-        'address' => 'required|max:30',
         ]);
 
         if ($validator->fails()) {
@@ -73,7 +71,6 @@ class HomeController extends Controller
             $task->save();
 
             return redirect('/');
-        //return view('home');
     }
 
 
@@ -91,13 +88,15 @@ class HomeController extends Controller
         $task = Contract::findOrFail($id);
 
         $task->delete();
-
-        ///Session::flash('flash_message', 'Task successfully deleted!');
-
         return redirect('/');
     }
 
+    public function edit($id)
+    {
+        $task = Contract::findOrFail($id);
 
+        return view('actions.update')->with('tasks',$task);
+    }
 
     public function update($id, Request $request)
     {
@@ -106,16 +105,12 @@ class HomeController extends Controller
         $this->validate($request, [
         'f_name' => 'required|string|max:30',
         'c_email' => 'required|string|email|max:30',
-        'f_name' => 'required|max:30',
         'cont_1' => 'required|max:11',
-        'address' => 'required|max:30',
         ]);
 
         $input = $request->all();
 
-        $task->fill($input)->save();
-
-         
+        $task->fill($input)->save();         
 
         return redirect('/');
     }

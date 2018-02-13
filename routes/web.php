@@ -18,15 +18,19 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/contract','HomeController@create')->name('contract');
+
 Route::post('/add', 'HomeController@add')->name('add');
 
 Route::get('/view/{id}', 'HomeController@view')->name('view');
 
 Route::get('/delete/{id}', 'HomeController@delete')->name('delete');
 
-Route::get('/update/{id}','HomeController@update')->name('update');
+Route::get('/edit/{id}','HomeController@edit')->name('edit');
 
-Route::get('/contract','HomeController@create')->name('contract');
+Route::post('/update/{id}','HomeController@update')->name('update');
+
+
 
  
 

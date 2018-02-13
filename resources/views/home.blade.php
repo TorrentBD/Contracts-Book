@@ -61,21 +61,22 @@
                                           <td>{{$task->cont_1}}</td>
                                           <td>
                                             <a href="{{ url('view',$task->id) }}"><button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-zoom-in"></span> View</button></a>&nbsp;
-                                            <a href=" {{ url('update',$task->id) }} "><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>&nbsp;
+
+                                            <a href=" {{ url('edit',$task->id) }} "><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>&nbsp;
                                             <a href=" {{ url('delete',$task->id ) }} " onclick="return confirm('Are you sure?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
                                           </td>
                                         </tr>
                                     @endforeach
                                 @endif
-                     <!---->
+                     <!---->   
                                 </tbody></table>
                             </div>
+                              
+                                   
                             <div class="col-lg-12 center">
                               <ul class="pagination pagination-sm">
-                       
-                                    <li class="active"><a href=" " > </a></li>
-                                     
-                                    <li><a href=" " class="links"  onclick="displayRecords(' " > </a></li>
+                               
+                                {{ $tasks->links() }}              
                                      
                               </ul>
                             </div>                                 

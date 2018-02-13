@@ -10,7 +10,7 @@
           </div>
           <div class="panel-body">
 
-            <form class="form-horizontal" name="contact_form" id="contact_form" enctype="multipart/form-data" method="post" action="{{ url('/updated') }}" >
+            <form class="form-horizontal" name="contact_form" id="contact_form" enctype="multipart/form-data" method="post" action="{{ url('update',$tasks->id) }}" >
                {{ csrf_field() }}
                <fieldset>
                 <div class="form-group">
@@ -62,7 +62,7 @@
                 <div class="form-group">
                   <label class="col-lg-4 control-label" for="address">Address:</label>
                   <div class="col-lg-5">
-                    <textarea id="address" name="address" rows="3" class="form-control"> {{ $tasks->cont_1 }}  </textarea>
+                    <textarea id="address" name="address" rows="3" class="form-control"> {{ $tasks->address }}  </textarea>
                   </div>
                 </div>
 
