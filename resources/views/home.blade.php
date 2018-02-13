@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: rgb(17, 152, 176);font-size: 30px;"><marquee width = "50%">Mini Address Book Web App Developed by M. Ray</marquee></div>
+                <div class="panel-heading" style="background-color: rgb(31, 106, 177);font-size: 30px;"><marquee width = "50%">Mini Address Book Web App Developed by M. Ray</marquee></div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -22,16 +22,17 @@
                         <div class="panel-body">
 
                           <div class="col-lg-12" style="padding-left: 0; padding-right: 0;" >
-                            <form action=" " method="get" >
+                            <!--<form action="" method="get" >-->
                             <div class="col-lg-6 pull-left"style="padding-left: 0;"  >
                               <span class="pull-left">  
-                                <label class="col-lg-12 control-label" for="keyword" style="padding-right: 0;">
-                                  <input type="text" value=" " placeholder="search by first name" id="" class="form-control" name="keyword" style="height: 41px;">
+                                <label class="col-lg-12 control-label" for="search" style="padding-right: 0;">
+                                  <input type="text" placeholder="live search" id="search" class="form-control" name="search" style="height: 41px;">
                                 </label>
                                 </span>
-                              <button class="btn btn-info">search</button>
+                              <!--<button class="btn btn-info">search</button>-->
                             </div>
-                            </form>
+                            <!--</form>-->
+
                             <div class="pull-right" ><a href="{{ url('/contract') }}"><button class="btn btn-success"><span class="glyphicon glyphicon-user"></span> Add New Contact</button></a></div>
                           </div>
 
@@ -39,7 +40,7 @@
                     <!---->
                             <div class="table-responsive">
                               <table class="table table-striped table-hover table-bordered ">
-                                <tbody>
+                                <thead>
                                   <tr>
                                     <th>People</th>
                                     <th>Full Name</th>
@@ -48,12 +49,15 @@
                                     <th>Contact No #1 </th>                   
                                     <th>Action </th>
                                   </tr>
+                                </thead>
+
+                                <tbody>
 
                                 @if (count($tasks) > 0)
                                     @foreach ($tasks as $task)
                                         <tr>
                                           <td style="text-align: center;">
-                                            <a href="{{ url('/')}}"><img src="{{ url('images', $task->pro_pic) }}" alt="" width="50" height="50" ></a>
+                                            <a href="{{ url('view',$task->id) }}"><img src="{{ url('images', $task->pro_pic) }}" alt="" width="50" height="50" ></a>
                                           </td>
                                           <td>{{$task->f_name}}</td>
                                           <td>{{$task->n_name}}</td>
@@ -70,7 +74,8 @@
                                 
                                 @endif
                      <!---->   
-                                </tbody></table>
+                                </tbody>
+                              </table>
                                 @if(count($tasks)==0)                  
                                   <div class="col-lg-12 center">
                                      Empty List

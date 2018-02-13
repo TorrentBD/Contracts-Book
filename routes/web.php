@@ -18,6 +18,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/search', 'HomeController@search')->name('search');
+
 Route::get('/contract','HomeController@create')->name('contract');
 
 Route::post('/add', 'HomeController@add')->name('add');

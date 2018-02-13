@@ -23,7 +23,7 @@
             <div class="form-group">
               <label class="col-lg-4 control-label" for="profile_pic">Profile picture:</label>
               <div class="col-lg-5">
-                <a href=" " target="_blank"><img src="{{ url('images',$tasks->pro_pic)}} " alt="" width="100" height="100" class="thumbnail" ></a>
+                <a href="{{ url('images',$tasks->pro_pic)}} " target="_blank"><img src="{{ url('images',$tasks->pro_pic)}} " alt="" width="100" height="100" class="thumbnail" ></a>
               </div>
             </div>
 

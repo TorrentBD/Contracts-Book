@@ -32,6 +32,30 @@ class HomeController extends Controller
         return view('home')->with('tasks',$users);
     }
 
+    public function search(Request $request)
+    {
+        if($request->ajax()){
+            $output="";
+            $search=DB::table('contracts')->where('f_name','LIKE','%'.$request->search.'%')
+                ->orWhere('n_name','LIKE','%'.$request->search.'%')
+                ->where('c_email','LIKE','%'.$request->search.'%')->get();
+            if($search){
+                foreach ($search as $key => $sa) {
+                    $output.='<tr>'.
+                            '<td>'. $sa->pro_pic. '</td>'.
+                            '<td>'. $sa->f_name. '</td>'.
+                            '<td>'. $sa->n_name. '</td>'.
+                            '<td>'. $sa->c_email. '</td>'.
+                            '<td>'. $sa->cont_1. '</td>'.
+                            '<td>'. $sa->pro_pic. '</td>'.
+                          '</tr>';
+                }
+                
+                return Response($output);
+            }
+        }   
+    }
+
 
     public function create()
     {
@@ -47,7 +71,7 @@ class HomeController extends Controller
         $this->validate($request,[
         'f_name' => 'required|string|max:30',
         'c_email' => 'required|string|email|max:30',
-        'cont_1' => 'required|max:11',
+        'cont_1' => 'required|max:11|min:11',
         'pro_pic'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 
@@ -93,10 +117,11 @@ class HomeController extends Controller
     {
         $task = Contract::findOrFail($id);
 
-        $this->validate($request, [
+        $this->validate($request,[
         'f_name' => 'required|string|max:30',
         'c_email' => 'required|string|email|max:30',
-        'cont_1' => 'required|max:11',
+        'cont_1' => 'required|max:11|min:11',
+        'pro_pic'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 
         $input = $request->all();
