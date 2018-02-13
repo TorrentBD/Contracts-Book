@@ -3,7 +3,7 @@
 @section('content')
  <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
       <ul class="breadcrumb">
         <li><a href="{{url('/')}}">Home</a></li>
         <li class="active">Add Contacts</li>

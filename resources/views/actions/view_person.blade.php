@@ -3,7 +3,7 @@
 @section('content')
  <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
       <ul class="breadcrumb">
         <li><a href="{{url('/')}}">Home</a></li>
         <li class="active">View Contacts</li>
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">View Contact</h3>
@@ -23,8 +23,7 @@
             <div class="form-group">
               <label class="col-lg-4 control-label" for="profile_pic">Profile picture:</label>
               <div class="col-lg-5">
-                 {{ $tasks->pro_pic }}
-                <a href=" " target="_blank"><img src=" " alt="" width="100" height="100" class="thumbnail" ></a>
+                <a href=" " target="_blank"><img src="{{ url('images',$tasks->pro_pic)}} " alt="" width="100" height="100" class="thumbnail" ></a>
               </div>
             </div>
 

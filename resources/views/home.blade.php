@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: rgb(17, 152, 176);font-size: 30px;"><marquee width = "50%">Mini Address Book Web App Developed by M. Ray</marquee></div>
 
@@ -53,7 +53,7 @@
                                     @foreach ($tasks as $task)
                                         <tr>
                                           <td style="text-align: center;">
-                                            <a href=" "><img src="{{ $task->pro_pic }}" alt="" width="50" height="50" ></a>
+                                            <a href="{{ url('/')}}"><img src="{{ url('images', $task->pro_pic) }}" alt="" width="50" height="50" ></a>
                                           </td>
                                           <td>{{$task->f_name}}</td>
                                           <td>{{$task->n_name}}</td>
@@ -67,19 +67,28 @@
                                           </td>
                                         </tr>
                                     @endforeach
+                                
                                 @endif
                      <!---->   
                                 </tbody></table>
-                            </div>
-                              
-                                   
+                                @if(count($tasks)==0)                  
+                                  <div class="col-lg-12 center">
+                                     Empty List
+                                  </div>                                
+                                @endif
+
                             <div class="col-lg-12 center">
                               <ul class="pagination pagination-sm">
                                
                                 {{ $tasks->links() }}              
                                      
                               </ul>
-                            </div>                                 
+                            </div>
+
+                            </div>
+                              
+                                   
+                                                             
                         </div>
                       </div>
                     </div>

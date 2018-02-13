@@ -42,35 +42,26 @@ class HomeController extends Controller
 
     public function add(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $input=$request->except('pro_pic');
+
+        $this->validate($request,[
         'f_name' => 'required|string|max:30',
         'c_email' => 'required|string|email|max:30',
         'cont_1' => 'required|max:11',
+        'pro_pic'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 
-        if ($validator->fails()) {
-        return redirect('/')
-            ->withInput()
-            ->withErrors($validator);
-    }
+        //image upload
+        $pro_pic=$request->pro_pic;
+        if($pro_pic){
+            $imageName=$pro_pic->getClientOriginalName();
+            $pro_pic->move('images',$imageName);
+            $input['pro_pic']=$imageName;
+        }
 
-            
-
-    $task = new Contract;
-            $task->f_name = $request->f_name;
-            $task->n_name = $request->n_name;
-            $task->c_email = $request->c_email;
-            $task->cont_1 = $request->cont_1;
-            $task->cont_2 = $request->cont_2;
-            $task->pro_pic = $request->pro_pic;
-            $task->address = $request->address;
-            $task->website = $request->website;
-            $task->b_date = $request->website;
-
-
-            $task->save();
-
-            return redirect('/');
+        Contract::create($input);
+        
+        return redirect('/');
     }
 
 
