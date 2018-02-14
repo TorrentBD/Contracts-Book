@@ -32,6 +32,8 @@ Route::get('/edit/{id}','HomeController@edit')->name('edit');
 
 Route::post('/update/{id}','HomeController@update')->name('update');
 
+Route::get('/download', 'HomeController@download')->name('download');
+
 
 
  

@@ -131,5 +131,29 @@ class HomeController extends Controller
         return redirect('/');
     }
 
+    public function download(Request $request)
+    {
+         $data=DB::table('contracts')->select('f_name','n_name','c_email','cont_1','cont_2','address')->get();
+
+         $tot_record_found=0;
+        if(count($data)>0){
+            $tot_record_found=1;
+            //First Methos          
+            $export_data="Full Name,Nick Name,Email,Contract#1,Contract#2,Address\n";
+
+            foreach($data as $value){
+                $export_data.=$value->f_name.','.$value->n_name.','.$value->c_email.','.$value->cont_1.','.$value->cont_2.','.$value->address."\n";
+            }
+            return response($export_data)
+                ->header('Content-Type','application/csv')               
+                ->header('Content-Disposition', 'attachment; filename="contract_list.csv"')
+                ->header('Pragma','no-cache')
+                ->header('Expires','0');                     
+        }
+        return redirect('/');    
+    }        
+
+    
+
 
 }

@@ -33,6 +33,8 @@
                             </div>
                             <!--</form>-->
 
+                            <div class="pull-left" ><a href="{{ url('/download') }}"><button class="btn btn-success"><i class="fas fa-cloud-download-alt"></i>Download Contract</button></a></div>
+
                             <div class="pull-right" ><a href="{{ url('/contract') }}"><button class="btn btn-success"><span class="glyphicon glyphicon-user"></span> Add New Contact</button></a></div>
                           </div>
 
@@ -76,6 +78,7 @@
                      <!---->   
                                 </tbody>
                               </table>
+                              
                                 @if(count($tasks)==0)                  
                                   <div class="col-lg-12 center">
                                      Empty List
