@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','Mini Address Book')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -54,7 +56,6 @@
                                 </thead>
 
                                 <tbody>
-
                                 @if (count($tasks) > 0)
                                     @foreach ($tasks as $task)
                                         <tr>
@@ -94,9 +95,7 @@
                             </div>
 
                             </div>
-                              
-                                   
-                                                             
+                                                                                               
                         </div>
                       </div>
                     </div>
@@ -105,4 +104,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+
+  <script>
+  $(document).ready(function(){
+      $('#search').on('keyup',function(){     
+          $value=$(this).val();
+          $.ajax({
+            type : 'get',          
+            url : '{{URL::to('search')}}',          
+            data:{'search':$value},          
+            success:function(data){           
+              $('tbody').html(data);          
+            }     
+        });
+    })
+  }); 
+</script>
+
 @endsection

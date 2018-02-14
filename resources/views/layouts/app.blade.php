@@ -81,40 +81,13 @@
         @yield('content')
     </div>
 
-        <!-- Search Script-->
-    <script type="text/javascript">
-     
-        $('#search').on('keyup',function(){
-         
-            $value=$(this).val();
-         
-            $.ajax({
-         
-            type : 'get',
-         
-            url : '{{URL::to('search')}}',
-         
-            data:{'search':$value},
-         
-            success:function(data){
-         
-            $('tbody').html(data);
-         
-            }
-         
-            });
-         
-         
-         
-        })
-         
-    </script>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('bootstrap/js/jquery-1.9.0.min.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    @yield('scripts')
+    
 </body>
 </html>

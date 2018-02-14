@@ -32,13 +32,16 @@ class HomeController extends Controller
         return view('home')->with('tasks',$users);
     }
 
+
     public function search(Request $request)
     {
         if($request->ajax()){
             $output="";
             $search=DB::table('contracts')->where('f_name','LIKE','%'.$request->search.'%')
                 ->orWhere('n_name','LIKE','%'.$request->search.'%')
-                ->where('c_email','LIKE','%'.$request->search.'%')->get();
+                ->orWhere('cont_1','LIKE','%'.$request->search.'%')
+                ->orwhere('c_email','LIKE','%'.$request->search.'%')->get();
+
             if($search){
                 foreach ($search as $key => $sa) {
                     $output.='<tr>'.
@@ -47,7 +50,6 @@ class HomeController extends Controller
                             '<td>'. $sa->n_name. '</td>'.
                             '<td>'. $sa->c_email. '</td>'.
                             '<td>'. $sa->cont_1. '</td>'.
-                            '<td>'. $sa->pro_pic. '</td>'.
                           '</tr>';
                 }
                 
@@ -55,6 +57,7 @@ class HomeController extends Controller
             }
         }   
     }
+
 
 
     public function create()
