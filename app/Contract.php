@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Contract extends Model
@@ -11,4 +12,9 @@ class Contract extends Model
     ];
 
     public $timestamps = false;
+
+
+    public function age() {
+		return $this->dob->diffInYears(\Carbon::now());
+ 	}
 }

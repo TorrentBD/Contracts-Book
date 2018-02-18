@@ -118,7 +118,7 @@ class HomeController extends Controller
 
     public function update($id, Request $request)
     {
-        //$task = Contract::findOrFail($id);
+        $task = Contract::findOrFail($id);
 
         $input=$request->except('pro_pic');
 
@@ -168,6 +168,12 @@ class HomeController extends Controller
     }        
 
     
+
+    public function age(Request $request)
+    {
+        $profile   = Contract::find($this->userid())->profiledetailsHasOne;  //This has Dob field                   
+        return view('profile.index',['profile' => $profile ]); 
+    }    
 
 
 }
