@@ -118,7 +118,9 @@ class HomeController extends Controller
 
     public function update($id, Request $request)
     {
-        $task = Contract::findOrFail($id);
+        //$task = Contract::findOrFail($id);
+
+        $input=$request->except('pro_pic');
 
         $this->validate($request,[
         'f_name' => 'required|string|max:30',
@@ -127,6 +129,15 @@ class HomeController extends Controller
         'pro_pic'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 
+        //image upload
+        $pro_pic=$request->pro_pic;
+        if($pro_pic){
+            $imageName=$pro_pic->getClientOriginalName();
+            $pro_pic->move('images',$imageName);
+            $input['pro_pic']=$imageName;
+        }
+
+        //Contract::create($input);
         $input = $request->all();
 
         $task->fill($input)->save();         

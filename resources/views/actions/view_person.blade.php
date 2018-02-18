@@ -41,6 +41,13 @@
               <div class="col-lg-5">
                 <input type="text" readonly="" value=" {{ $tasks->n_name }} " placeholder="Nick Name" id="n_name" class="form-control" name="n_name">
               </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="middle_name">Birth date:</label>
+              <div class="col-lg-5">
+                <input type="text" readonly="" value=" {{ $tasks->b_date }} " placeholder="Birth date" id="b_date" class="form-control" name="b_date">
+              </div>
             </div>                                
             
             <div class="form-group">
