@@ -36,6 +36,13 @@
                     <input type="text" placeholder="You Nick Name" id="n_name" class="form-control" value=" {{ $tasks->n_name }}" name="n_name">
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label class="col-lg-4 control-label" for="middle_name">Birth Date:</label>
+                  <div class="col-lg-5">
+                    <input type="date" value="{{ $tasks->b_date }}" id="b_date" class="form-control" name="b_date">
+                  </div>
+                </div>
                 
                 <div class="form-group">
                   <label class="col-lg-4 control-label" for="email_id"><span class="required">*</span>Email ID:</label>
