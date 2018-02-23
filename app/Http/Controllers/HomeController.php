@@ -168,13 +168,5 @@ class HomeController extends Controller
         return redirect('/');    
     }        
 
-    
-
-    public function age(Request $request)
-    {
-        $profile   = Contract::find($this->userid())->profiledetailsHasOne;  //This has Dob field                   
-        return view('profile.index',['profile' => $profile ]); 
-    }    
-
 
 }

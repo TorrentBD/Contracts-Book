@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-primary">
           <div class="panel-heading">
            <h3 class="panel-title" align="center">Add New Contact  </h3>
@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                   <label class="col-lg-4 control-label" for="middle_name">Birth Date:</label>
-                  <div class="col-lg-5">
+                  <div class="col-md-5">
                     <input type="date" id="b_date" class="form-control" name="b_date">
                   </div>
                 </div>

@@ -6,9 +6,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: rgb(31, 106, 177);font-size: 30px;"><marquee width = "50%">Mini Address Book Web App Developed by M. Ray</marquee></div>
-
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -99,8 +96,7 @@
                         </div>
                       </div>
                     </div>
-                </div>
-            </div>
+                </div>           
         </div>
     </div>
 </div>
